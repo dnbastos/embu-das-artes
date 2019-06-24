@@ -1,37 +1,77 @@
+html {
+  box-sizing: border-box; }
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
+a {
+  color: inherit;
+  text-decoration: none; }
 
-.App {
+.btn-circle {
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: none;
+  height: 50px;
+  width: 50px;
+  background-color: #ee1c25;
+  color: #fff;
+  font-size: 1.3rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  outline: 0; }
+  .btn-circle:hover {
+    background-color: #c80f17; }
+  .btn-circle:focus {
+    outline: dotted 1px #000; }
+
+.app-header {
+  background-color: #fff;
+  padding: 4px;
+  border-bottom: 1px #bac1b8 solid; }
+  .app-header .site-logo img {
+    max-height: 42px;
+    display: block;
+    margin: 0 auto; }
+
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #1e441e;
+  padding: 16px;
+  color: #fff;
   text-align: center; }
+  .app-footer a {
+    font-weight: bold;
+    color: #fff; }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none; }
+.location-list {
+  position: relative;
+  left: -82%;
+  width: 82%;
+  height: calc(100vh - 60px);
+  transition: left 0.28s ease-in-out; }
+  .location-list.is-open {
+    left: 0; }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white; }
+.open-location-list {
+  position: absolute;
+  top: 12px;
+  left: calc(100% + 6px); }
 
-.App-link {
-  color: #61dafb; }
+.close-location-list {
+  position: absolute;
+  top: 15px;
+  right: 15px; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(360deg); } }
+.location-list-container {
+  position: absolute;
+  background-color: #152614;
+  width: 100%;
+  height: 100%; }
 
 /*# sourceMappingURL=App.css.map */

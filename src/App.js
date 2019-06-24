@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './images/logo-embu.jpg';
 import './styles/css/App.css';
+import LocationList from './LocationList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='app'>
+      <header className='app-header'>
+        <div className='site-logo'>
+          <img src={logo} alt='Logo da Prefeitura de Embu das Artes' />
+        </div>
       </header>
+
+      <main className='app-main'>
+        <LocationList />
+        {/* <Map /> */}
+        {/* <LocationInfo /> */}
+      </main>
+
+      <footer className='app-footer'>
+        Desenvolvido por <a href='https://github.com/dnbastos'>Daniel Bastos</a>
+      </footer>
     </div>
   );
 }
