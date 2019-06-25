@@ -25,7 +25,7 @@ a {
   .btn-circle:hover {
     background-color: #c80f17; }
   .btn-circle:focus {
-    outline: dotted 1px #000; }
+    outline: dotted 1px gray; }
 
 .app-header {
   background-color: #fff;
@@ -49,29 +49,32 @@ a {
     font-weight: bold;
     color: #fff; }
 
-.location-list {
+.location-list-container {
   position: relative;
-  left: -82%;
-  width: 82%;
+  left: -100%;
+  width: 100%;
   height: calc(100vh - 60px);
   transition: left 0.28s ease-in-out; }
-  .location-list.is-open {
+  .location-list-container .location-list {
+    position: absolute;
+    background-color: #152614;
+    width: 100%;
+    max-width: 100%;
+    height: 100%; }
+    .location-list-container .location-list .btn-open-list {
+      position: absolute;
+      top: 16px;
+      right: -56px;
+      transition: all 0.1s ease-in-out; }
+  .location-list-container.is-open {
     left: 0; }
-
-.open-location-list {
-  position: absolute;
-  top: 12px;
-  left: calc(100% + 6px); }
-
-.close-location-list {
-  position: absolute;
-  top: 15px;
-  right: 15px; }
-
-.location-list-container {
-  position: absolute;
-  background-color: #152614;
-  width: 100%;
-  height: 100%; }
+    .location-list-container.is-open .location-list .btn-open-list {
+      right: 16px; }
+  @media (min-width: 960px) {
+    .location-list-container {
+      width: 380px;
+      left: 0; }
+      .location-list-container .btn-open-list {
+        display: none; } }
 
 /*# sourceMappingURL=index.css.map */

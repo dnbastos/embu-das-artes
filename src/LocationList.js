@@ -8,21 +8,22 @@ class LocationList extends Component {
   }
 
   toogleList = () => {
-    document.querySelector('.location-list').classList.toggle('is-open');
+    document.documentElement.classList.toggle('menu-ativo');
+    document.querySelector('.location-list-container').classList.toggle('is-open');
     this.setState(prevState => ({ active: !prevState.active }));
   }
 
   render() {
     return (
-      <div className='location-list'>
-        <button
-          className='btn-circle open-location-list'
-          onClick={this.toogleList}
-        >
-          {!this.state.active && ( <FontAwesomeIcon icon={faList} /> )}
-          {this.state.active && ( <FontAwesomeIcon icon={faTimes} /> )}
-        </button>
-        <div className='location-list-container'>
+      <div className='location-list-container'>
+        <div className='location-list'>
+          <button
+            className='btn-circle btn-open-list'
+            onClick={this.toogleList}
+          >
+            {!this.state.active && (<FontAwesomeIcon icon={faList} />)}
+            {this.state.active && (<FontAwesomeIcon icon={faTimes} />)}
+          </button>
           <header>
             <h2>Pontos de interesse:</h2>
             {/* <button
