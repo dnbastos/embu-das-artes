@@ -1,21 +1,21 @@
 import React from 'react';
 import logo from './images/logo-embu.jpg';
 import './styles/css/App.css';
-import LocationList from './LocationList';
+import Sidebar from './Sidebar';
 
 function App() {
   return (
     <div className='app'>
       <header className='app-header'>
         <div className='site-logo'>
-          <img src={logo} alt='Logo da Prefeitura de Embu das Artes' />
+          <img src='http://192.168.2.178/intranet_desenv/assets/img/logos/logo.png' alt='Logo da Prefeitura de Embu das Artes' />
         </div>
       </header>
 
       <main className='app-main'>
-        <LocationList />
+        <Sidebar />
         {/* <Map /> */}
-        {/* <LocationInfo /> */}
+        {/* <PlaceInfo /> */}
       </main>
 
       <footer className='app-footer'>
