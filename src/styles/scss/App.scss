@@ -88,6 +88,7 @@ ul {
   padding: 16px;
   color: #fff;
   text-align: center;
+  z-index: 1;
   a {
     color: #fff;
   }
@@ -97,10 +98,11 @@ ul {
 .app-sidebar {
   position: absolute;
   box-sizing: border-box;
-  left: -100%;
-  width: 100%;
+  left: -90%;
+  width: 90%;
   padding: 16px;
   height: calc(100vh - 90px);
+  z-index: 1;
   background-color: $color-scheme-5;
   color: $color-scheme-2;
   transition: all 0.28s ease-in-out;
@@ -145,7 +147,7 @@ ul {
     .places-list-icon {
       color: #000;
       opacity: 0.4;
-      padding-right: 5px; 
+      padding-right: 15px; 
     }
   }
 }
@@ -162,8 +164,16 @@ ul {
   }
 }
 
+.map-container {
+  position: relative;
+  background-color: $color-scheme-2;
+  width: 100%;
+  height: calc(100vh - 100px);
+  left: 0px;
+  transition: left 0.28s ease-in-out;
 
-// .close-location-list {
-//   position: absolute;
-//   left: -16px;
-// }
+  @media (min-width: 768px) {
+    width: calc(100% - 320px);
+    left: 320px;
+  }
+}

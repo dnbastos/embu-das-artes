@@ -70,17 +70,19 @@ ul {
   background-color: #152614;
   padding: 16px;
   color: #fff;
-  text-align: center; }
+  text-align: center;
+  z-index: 1; }
   .app-footer a {
     color: #fff; }
 
 .app-sidebar {
   position: absolute;
   box-sizing: border-box;
-  left: -100%;
-  width: 100%;
+  left: -90%;
+  width: 90%;
   padding: 16px;
   height: calc(100vh - 90px);
+  z-index: 1;
   background-color: #1e441e;
   color: #dee7dc;
   transition: all 0.28s ease-in-out; }
@@ -117,7 +119,7 @@ ul {
     .places-list li .places-list-icon {
       color: #000;
       opacity: 0.4;
-      padding-right: 5px; }
+      padding-right: 15px; }
 
 .form-search {
   position: relative;
@@ -128,5 +130,17 @@ ul {
     position: absolute;
     right: 5px;
     padding: 10px; }
+
+.map-container {
+  position: relative;
+  background-color: #dee7dc;
+  width: 100%;
+  height: calc(100vh - 100px);
+  left: 0px;
+  transition: left 0.28s ease-in-out; }
+  @media (min-width: 768px) {
+    .map-container {
+      width: calc(100% - 320px);
+      left: 320px; } }
 
 /*# sourceMappingURL=index.css.map */
