@@ -1,3 +1,4 @@
+//Theme Colors
 $color-scheme-1: #00a650;
 $color-scheme-2: #dee7dc;
 $color-scheme-3: #ce2812;
@@ -7,6 +8,8 @@ $color-scheme-5: #1e441e;
 html {
   box-sizing: border-box;
 }
+
+//Document Style
 
 body,
 input {
@@ -38,6 +41,13 @@ ul {
   padding: 0;
 }
 
+*[tabindex="0"], button {
+  cursor: pointer;
+}
+
+
+//Helpers class
+
 .btn-circle {
   box-sizing: border-box;
   border-radius: 50%;
@@ -62,11 +72,22 @@ ul {
   width: 100%;
   box-sizing: border-box;
   border-radius: 5px;
-  height: 40px;
+  height: 45px;
   padding: 0 8px;
+  margin-bottom: 4px;
   border: 1px solid $color-scheme-1;
-  outline-color: yellow;  
+  outline-color: yellow;
 }
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+//Main Header
 
 .app-header {
   background-color: #fff;
@@ -79,6 +100,7 @@ ul {
   }
 }
 
+//Main Footer
 .app-footer {
   position: fixed;
   bottom: 0;
@@ -129,29 +151,34 @@ ul {
 
 .app-sidebar-header h2 {
   font-size: 1.2em;
+  margin-bottom: 30px;
   color: $color-scheme-2;
 }
 
 //Location List
 .places-list {
-  padding: 5px 0;
+  margin: 40px 0;
   li {
-    padding: 22px 12px;
+    padding: 22px 4px;
     margin-bottom: 8px;
     border: solid 1px darken($color-scheme-5, 5%);
     border-left: 4px solid #ce2812;
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.4);
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: rgba(0, 0, 0, 0.1);
     }
     .places-list-icon {
       color: #000;
       opacity: 0.4;
-      padding-right: 15px; 
+      padding: 0 12px;
+      display: inline-block;
+      height: 100%;
     }
   }
 }
 
+//Form search
 .form-search {
   position: relative;
   margin-bottom: 20px;
@@ -159,18 +186,19 @@ ul {
     color: $color-scheme-5;
     opacity: 0.5;
     position: absolute;
-    right: 5px; 
-    padding: 10px; 
+    right: 5px;
+    padding: 14px 8px;
   }
 }
 
+//Map
 .map-container {
   position: relative;
   background-color: $color-scheme-2;
   width: 100%;
   height: calc(100vh - 100px);
   left: 0px;
-  transition: left 0.28s ease-in-out;
+  transition: all 0.28s ease-in-out;
 
   @media (min-width: 768px) {
     width: calc(100% - 320px);

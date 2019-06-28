@@ -5,15 +5,15 @@
   "places": [
     {
       "name": "Feira de Artes",
-      "type": "Ponto "
+      "type": "Tourist Attraction"
     },
     {
       "name": "Museu de Arte Sacra",
-      "type": "Tourist Attractions"
+      "type": "Tourist Attraction"
     },
     {
       "name": "O Garimpo",
-      "type": "Restaurants"
+      "type": "Restaurant"
     }
   ]
 }

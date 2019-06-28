@@ -27,6 +27,9 @@ ul {
   margin: 0;
   padding: 0; }
 
+*[tabindex="0"], button {
+  cursor: pointer; }
+
 .btn-circle {
   box-sizing: border-box;
   border-radius: 50%;
@@ -48,10 +51,17 @@ ul {
   width: 100%;
   box-sizing: border-box;
   border-radius: 5px;
-  height: 40px;
+  height: 45px;
   padding: 0 8px;
+  margin-bottom: 4px;
   border: 1px solid #00a650;
   outline-color: yellow; }
+
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
 
 .app-header {
   background-color: #fff;
@@ -104,22 +114,25 @@ ul {
 
 .app-sidebar-header h2 {
   font-size: 1.2em;
+  margin-bottom: 30px;
   color: #dee7dc; }
 
 .places-list {
-  padding: 5px 0; }
+  margin: 40px 0; }
   .places-list li {
-    padding: 22px 12px;
+    padding: 22px 4px;
     margin-bottom: 8px;
     border: solid 1px #163216;
     border-left: 4px solid #ce2812;
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.4); }
-    .places-list li:hover {
+    .places-list li:hover, .places-list li:focus {
       background-color: rgba(0, 0, 0, 0.1); }
     .places-list li .places-list-icon {
       color: #000;
       opacity: 0.4;
-      padding-right: 15px; }
+      padding: 0 12px;
+      display: inline-block;
+      height: 100%; }
 
 .form-search {
   position: relative;
@@ -129,7 +142,7 @@ ul {
     opacity: 0.5;
     position: absolute;
     right: 5px;
-    padding: 10px; }
+    padding: 14px 8px; }
 
 .map-container {
   position: relative;
@@ -137,7 +150,7 @@ ul {
   width: 100%;
   height: calc(100vh - 100px);
   left: 0px;
-  transition: left 0.28s ease-in-out; }
+  transition: all 0.28s ease-in-out; }
   @media (min-width: 768px) {
     .map-container {
       width: calc(100% - 320px);

@@ -5,12 +5,28 @@ import './styles/css/App.css';
 import * as PlaceAPI from './PlacesAPI';
 import Sidebar from './Sidebar';
 import MapContainer from './MapContainer';
+import { thisExpression } from '@babel/types';
 
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    this.markerRef = React.createRef();
+  }
+
   state = {
-    places: []
+    places: [],
+    showingInfoWindow: false,
+    activeMarker: {}
+  }
+
+  handleActiveMarker = placeId => {
+    // this.setState({
+    //   showingInfoWindow: true,
+    //   activeMarker: this.mapContainer['marker' + placeId].getDOMNode()
+    // });
+    console.log(this.mapContainer);
   }
 
   componentDidMount() {
@@ -19,8 +35,10 @@ class App extends Component {
     // });
 
     PlaceAPI.getAll()
-    .then(places => this.setState({ places }))
-    .catch(error => console.log(error));
+      .then(places => this.setState({ places }))
+      .catch(error => console.log(error));
+
+    console.log(this.mapContainer.map);
   }
 
   render() {
@@ -34,7 +52,10 @@ class App extends Component {
 
         <main className='app-main'>
           <Sidebar places={this.state.places}/>
-          <MapContainer places={this.state.places}/>
+          <MapContainer 
+            ref={(node) => { this.mapContainer = node; }}
+            places={this.state.places} 
+            handleActiveMarker={this.handleActiveMarker}/>
           {/* <PlaceInfo /> */}
         </main>
 
