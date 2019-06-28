@@ -8,14 +8,16 @@ const getMyPlaceById = id => myPlaces.places.filter((place, i) => i === id)[0];
 
 const getQuery = placeId => {
  const myPlace = getMyPlaceById(placeId);
- return `${myPlace} ${myPlaces.neighborhood}, ${myPlaces.city} - ${myPlaces.state}`;
+ return `${myPlace.name} ${myPlaces.neighborhood}, ${myPlaces.city} - ${myPlaces.state}`;
 }
 
 export const get = placeId => {
+  const myPlace = myPlaces.places[placeId];
   return Geocode.fromAddress(getQuery(placeId))
     .then(data => data.results[0])
     .then(data => {
-      data.name = myPlaces.places[placeId];
+      data.name = myPlace.name;
+      data.type = myPlace.type;
       return data;
     });
 };

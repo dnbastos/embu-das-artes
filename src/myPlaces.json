@@ -3,8 +3,17 @@
   "city": "Embu das Artes",
   "neighborhood": "Centro",
   "places": [
-    "Feira de Artes",
-    "Museu de Arte Sacra",
-    "O Garimpo"
+    {
+      "name": "Feira de Artes",
+      "type": "Ponto "
+    },
+    {
+      "name": "Museu de Arte Sacra",
+      "type": "Tourist Attractions"
+    },
+    {
+      "name": "O Garimpo",
+      "type": "Restaurants"
+    }
   ]
 }
