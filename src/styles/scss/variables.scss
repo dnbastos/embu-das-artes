@@ -1,0 +1,17 @@
+//Theme Colors
+$color-scheme-1: #00a650;
+$color-scheme-2: #dee7dc;
+$color-scheme-3: #ce2812;
+$color-scheme-4: #152614;
+$color-scheme-5: #1e441e;
+
+//Type Colors
+$restaurant-color: #ce2812;
+$attraction-color: #00a650;
+$default-type-color: #fff;
+
+:export {
+  restaurantColor: $restaurant-color;
+  attractionColor: $attraction-color;
+  defaultTypeColor: $default-type-color;
+}

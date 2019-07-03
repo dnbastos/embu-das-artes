@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
+import styles from './styles/scss/variables.scss';
 
 const apiKey = 'AIzaSyC0LJxzJG83wmuruULMypSFxo6nypBS_bY';
 
 class MapContainer extends Component {
 
-  typeColor = {
-    'Restaurant': 'ce2812',
-    'Tourist Attraction': '00a650',
+  geTypeColor = typeName => {
+    const colorFormat = cssColor => cssColor.replace('#', ''); 
+    switch(typeName){
+      case 'Restaurant':
+        return colorFormat(styles.restaurantColor);
+      case 'Tourist Attraction':
+          return colorFormat(styles.attractionColor);
+      default:
+        return colorFormat(styles.defaultTypeColor);
+    }
   }
 
   getPinImage = typeName =>
-    `http://chart.googleapis.com/chart?chst=d_map_spin&chld=0.75|0|${this.typeColor[typeName]}|40|`;
+    `http://chart.googleapis.com/chart?chst=d_map_spin&chld=0.75|0|${this.geTypeColor(typeName)}|40|`;
 
   getLocation = place => {
     if (!place || !place.geometry) return { lat: 0, lng: 0 };
@@ -30,7 +38,6 @@ class MapContainer extends Component {
     const { places, google, activatePlace, selectedPlace, showingInfoWindow } = this.props;
     return (
       <div className='map-container'>
-        {console.log(google)}
         <Map
           google={google}
           zoom={16}

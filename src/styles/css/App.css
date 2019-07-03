@@ -1,3 +1,8 @@
+:export {
+  restaurantColor: #ce2812;
+  attractionColor: #00a650;
+  defaultTypeColor: #fff; }
+
 html {
   box-sizing: border-box; }
 
@@ -123,8 +128,12 @@ ul {
     padding: 22px 4px;
     margin-bottom: 8px;
     border: solid 1px #163216;
-    border-left: 4px solid #ce2812;
+    border-left: 4px solid #fff;
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.4); }
+    .places-list li.restaurant {
+      border-left-color: #ce2812; }
+    .places-list li.attraction {
+      border-left-color: #00a650; }
     .places-list li:hover, .places-list li:focus {
       background-color: rgba(0, 0, 0, 0.1); }
     .places-list li .places-list-icon {
