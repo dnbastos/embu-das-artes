@@ -10,23 +10,10 @@ import { thisExpression } from '@babel/types';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.markerRef = React.createRef();
-  }
-
   state = {
     places: [],
-    showingInfoWindow: false,
-    activeMarker: {}
-  }
-
-  handleActiveMarker = placeId => {
-    // this.setState({
-    //   showingInfoWindow: true,
-    //   activeMarker: this.mapContainer['marker' + placeId].getDOMNode()
-    // });
-    console.log(this.mapContainer);
+    selectedPlace: undefined,
+    showingInfoWindow: false
   }
 
   componentDidMount() {
@@ -37,8 +24,13 @@ class App extends Component {
     PlaceAPI.getAll()
       .then(places => this.setState({ places }))
       .catch(error => console.log(error));
+  }
 
-    console.log(this.mapContainer.map);
+  activatePlace = place => {
+    this.setState({
+      selectedPlace: place,
+      showingInfoWindow: true
+    });
   }
 
   render() {
@@ -51,11 +43,16 @@ class App extends Component {
         </header>
 
         <main className='app-main'>
-          <Sidebar places={this.state.places}/>
-          <MapContainer 
-            ref={(node) => { this.mapContainer = node; }}
-            places={this.state.places} 
-            handleActiveMarker={this.handleActiveMarker}/>
+          <Sidebar
+            places={this.state.places}
+            activatePlace={this.activatePlace}
+          />
+          <MapContainer
+            places={this.state.places}
+            activatePlace={this.activatePlace}
+            selectedPlace={this.state.selectedPlace}
+            showingInfoWindow={this.state.showingInfoWindow}
+          />
           {/* <PlaceInfo /> */}
         </main>
 

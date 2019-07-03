@@ -38,8 +38,10 @@ class Sidebar extends Component {
           onClick={this.toogleList}
           aria-hidden='true'
         >
-          {!this.state.active && (<FontAwesomeIcon icon={faList} />)}
-          {this.state.active && (<FontAwesomeIcon icon={faTimes} />)}
+          {this.state.active
+            ? (<FontAwesomeIcon icon={faTimes} />)
+            : (<FontAwesomeIcon icon={faList} />)
+          }
         </button>
         <header className='app-sidebar-header'>
           <h2>Pontos de interesse</h2>
@@ -55,7 +57,11 @@ class Sidebar extends Component {
             <FontAwesomeIcon icon={faSearch} className='search-icon' />
           </form>
 
-          <PlaceList places={this.props.places} />
+          <PlaceList
+            places={this.props.places}
+            activatePlace={this.props.activatePlace}
+            toogleList={this.toogleList}
+          />
 
         </main>
       </div>
