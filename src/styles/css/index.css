@@ -3,6 +3,39 @@
   attractionColor: #00a650;
   defaultTypeColor: #fff; }
 
+.btn-circle {
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: none;
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  color: #ce2812;
+  border: 2px solid #ce2812;
+  font-size: 1.3rem;
+  outline: 0; }
+  .btn-circle:hover {
+    color: #9f1f0e;
+    border-color: #9f1f0e; }
+  .btn-circle:focus {
+    outline: dotted 1px gray; }
+
+.input-control {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  height: 45px;
+  padding: 0 8px;
+  margin-bottom: 4px;
+  border: 1px solid #00a650;
+  outline-color: yellow; }
+
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
 :export {
   restaurantColor: #ce2812;
   attractionColor: #00a650;
@@ -39,39 +72,6 @@ ul {
 
 *[tabindex="0"], button {
   cursor: pointer; }
-
-.btn-circle {
-  box-sizing: border-box;
-  border-radius: 50%;
-  border: none;
-  height: 50px;
-  width: 50px;
-  background-color: transparent;
-  color: #ce2812;
-  border: 2px solid #ce2812;
-  font-size: 1.3rem;
-  outline: 0; }
-  .btn-circle:hover {
-    color: #9f1f0e;
-    border-color: #9f1f0e; }
-  .btn-circle:focus {
-    outline: dotted 1px gray; }
-
-.input-control {
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: 5px;
-  height: 45px;
-  padding: 0 8px;
-  margin-bottom: 4px;
-  border: 1px solid #00a650;
-  outline-color: yellow; }
-
-.pull-left {
-  float: left; }
-
-.pull-right {
-  float: right; }
 
 .app-header {
   background-color: #fff;
