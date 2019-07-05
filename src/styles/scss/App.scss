@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 html {
   box-sizing: border-box;
@@ -36,7 +36,8 @@ ul {
   padding: 0;
 }
 
-*[tabindex="0"], button {
+*[tabindex="0"],
+button {
   cursor: pointer;
 }
 
@@ -158,9 +159,41 @@ ul {
   height: calc(100vh - 100px);
   left: 0px;
   transition: all 0.28s ease-in-out;
-
+  &.selected-place {
+    height: calc(45vh - 100px);
+  }
   @media (min-width: 768px) {
     width: calc(100% - 320px);
     left: 320px;
   }
 }
+
+//Place Info
+.place-info {
+  box-sizing: border-box;
+  position: relative;
+  height: 55vh;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 20px;
+  transition: all 0.28s ease-in-out;
+  @media (min-width: 768px) {
+    width: calc(100% - 320px);
+    left: 320px;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  p{
+    line-height: 0.9em;
+    margin-left: 10px;
+  }
+}
+
+.close-place-info {
+  position: absolute;
+  top: 20px;
+  right: 20px
+}
+

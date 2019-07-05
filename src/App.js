@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import logo from './images/logo-embu.jpg';
-import myPlaces from './myPlaces.json';
 import './styles/css/App.css';
 import * as PlaceAPI from './PlacesAPI';
 import Sidebar from './Sidebar';
 import MapContainer from './MapContainer';
-import { thisExpression } from '@babel/types';
-
+import PlaceInfo from './PlaceInfo';
 
 class App extends Component {
 
@@ -17,10 +15,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // PlaceAPI.get(1).then(place => {
-    //   console.log('place', place);
-    // });
-
     PlaceAPI.getAll()
       .then(places => this.setState({ places }))
       .catch(error => console.log(error));
@@ -30,6 +24,13 @@ class App extends Component {
     this.setState({
       selectedPlace: place,
       showingInfoWindow: true
+    });
+  }
+
+  disablePlace = () => {
+    this.setState({
+      selectedPlace: undefined,
+      showingInfoWindow: false
     });
   }
 
@@ -53,7 +54,10 @@ class App extends Component {
             selectedPlace={this.state.selectedPlace}
             showingInfoWindow={this.state.showingInfoWindow}
           />
-          {/* <PlaceInfo /> */}
+          <PlaceInfo 
+            selectedPlace={this.state.selectedPlace}
+            disablePlace={this.disablePlace}
+          />
         </main>
 
         <footer className='app-footer'>

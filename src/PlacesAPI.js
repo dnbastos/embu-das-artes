@@ -18,6 +18,7 @@ export const get = placeId => {
     .then(data => {
       data.name = myPlace.name;
       data.type = myPlace.type;
+      data.formatted_address = data.formatted_address.replace(/,/gm, '\n');
       return data;
     });
 };

@@ -6,17 +6,26 @@ const apiKey = 'AIzaSyC0LJxzJG83wmuruULMypSFxo6nypBS_bY';
 
 class MapContainer extends Component {
 
+  mapZoom = 16;
+
   geTypeColor = typeName => {
-    const colorFormat = cssColor => cssColor.replace('#', ''); 
-    switch(typeName){
+    const colorFormat = cssColor => cssColor.replace('#', '');
+    switch (typeName) {
       case 'Restaurant':
         return colorFormat(styles.restaurantColor);
       case 'Tourist Attraction':
-          return colorFormat(styles.attractionColor);
+        return colorFormat(styles.attractionColor);
       default:
         return colorFormat(styles.defaultTypeColor);
     }
   }
+
+  handleMapReady = (mapProps, map) => {
+    this.map = map;
+    map.addListener('zoom_changed', () => {
+      this.mapZoom = map.getZoom();
+    });
+  };
 
   getPinImage = typeName =>
     `http://chart.googleapis.com/chart?chst=d_map_spin&chld=0.75|0|${this.geTypeColor(typeName)}|40|`;
@@ -30,21 +39,21 @@ class MapContainer extends Component {
 
   getInfoWindowLocation = place => {
     const location = this.getLocation(place);
-    location.lat += 0.001;
+    const distance = Math.pow(32, 3) * 1 / Math.pow(2, this.mapZoom - 1) / 1000;
+    location.lat += distance;
     return location;
   }
 
   render() {
     const { places, google, activatePlace, selectedPlace, showingInfoWindow } = this.props;
+    const classSelectedPlace = !!selectedPlace ? 'selected-place' : '';
     return (
-      <div className='map-container'>
+      <div className={`map-container ${classSelectedPlace}`}>
         <Map
           google={google}
-          zoom={16}
-          maxZoom={16}
-          minZoom={16}
+          zoom={this.mapZoom}
+          onReady={this.handleMapReady}
           initialCenter={{ lat: -23.6510251, lng: -46.8545333 }}
-          zoomControl={false}
           disableDefaultUI={true}
         >
           {places.map((place, i) => (

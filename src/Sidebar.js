@@ -30,6 +30,10 @@ class Sidebar extends Component {
     this.onOuterClick(() => this.state.active && this.toogleList());
   }
 
+  handleSearchChange() {
+
+  }
+
   render() {
     return (
       <div className='app-sidebar'>

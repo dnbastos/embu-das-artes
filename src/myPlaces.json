@@ -14,6 +14,10 @@
     {
       "name": "O Garimpo",
       "type": "Restaurant"
+    },
+    {
+      "name": "Parque rizzo",
+      "type": "Tourist Attraction"
     }
   ]
 }

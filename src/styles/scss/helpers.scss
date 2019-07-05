@@ -9,7 +9,8 @@
   background-color: transparent;
   color: $color-scheme-3;
   border: 2px solid $color-scheme-3;
-  font-size: 1.3rem;
+  font-size: 1.33rem;
+  padding-top: 4px;
   outline: 0;
   &:hover {
     color: darken($color-scheme-3, 10%);
@@ -26,7 +27,7 @@
   border-radius: 5px;
   height: 45px;
   padding: 0 8px;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
   border: 1px solid $color-scheme-1;
   outline-color: yellow;
 }
