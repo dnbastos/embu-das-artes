@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faCaretRight } from '@fortawesome/free-solid-svg-icons'
 
 class PlaceList extends Component {
-  
+
   selectPlace = place => {
     const { activatePlace, toogleList } = this.props;
     activatePlace(place);
@@ -11,11 +11,13 @@ class PlaceList extends Component {
   }
 
   getClassType = typeName => {
-    switch(typeName){
+    switch (typeName) {
       case 'Restaurant':
         return 'restaurant';
       case 'Tourist Attraction':
-          return 'attraction';
+        return 'attraction';
+      case 'Hotel':
+        return 'hotel';
       default:
         return '';
     }
@@ -26,10 +28,16 @@ class PlaceList extends Component {
     return (
       <ul className='places-list'>
         {places.map((place, i) => (
-          <li key={i} tabIndex='0' onClick={() => this.selectPlace(place)} className={this.getClassType(place.type)}>
+          <li
+            className={this.getClassType(place.type)}
+            key={i}
+            tabIndex='0'
+            onClick={() => this.selectPlace(place)}
+            onKeyDown={ev => ev.key === 'Enter' && this.selectPlace(place)}
+          >
             <FontAwesomeIcon icon={faMapMarkerAlt} className='places-list-icon pull-left' />
-            {place.name}
-            <FontAwesomeIcon icon={faCaretRight} size="lg" className='places-list-icon pull-right'/>
+            <div className='item-text'>{place.name}</div>
+            <FontAwesomeIcon icon={faCaretRight} size="lg" className='places-list-icon pull-right' />
           </li>
         ))}
       </ul>

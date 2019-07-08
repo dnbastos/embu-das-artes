@@ -1,24 +1,11 @@
 //Helpers class
 
-.btn-circle {
-  box-sizing: border-box;
-  border-radius: 50%;
-  border: none;
-  height: 50px;
-  width: 50px;
-  background-color: transparent;
-  color: $color-scheme-3;
-  border: 2px solid $color-scheme-3;
-  font-size: 1.33rem;
-  padding-top: 4px;
-  outline: 0;
-  &:hover {
-    color: darken($color-scheme-3, 10%);
-    border-color: darken($color-scheme-3, 10%);
-  }
-  &:focus {
-    outline: dotted 1px lighten(#000, 50%);
-  }
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
 }
 
 .input-control {
@@ -32,10 +19,40 @@
   outline-color: yellow;
 }
 
-.pull-left {
-  float: left;
+.btn {
+  background-color: $color-scheme-5;
+  outline: 0;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: normal;
+  &:hover {
+    background-color: darken($color-scheme-5, 10%);
+  }
+  &:focus {
+    outline: dotted 1px lighten($color-scheme-5, 25%);
+  }
 }
 
-.pull-right {
-  float: right;
+.btn-circle {
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: none;
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  color: $color-scheme-3;
+  border: 2px solid $color-scheme-3;
+  font-size: 1.33rem;
+  padding-top: 2px;
+  outline: 0;
+  &:hover {
+    color: darken($color-scheme-3, 10%);
+    border-color: darken($color-scheme-3, 10%);
+  }
+  &:focus {
+    outline: dotted 1px lighten(#000, 50%);
+  }
 }

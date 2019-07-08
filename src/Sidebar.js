@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PlaceList from './PlaceList';
+import FormSearch from './FormSearch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faList, faTimes, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faList, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 class Sidebar extends Component {
   state = {
@@ -30,10 +31,6 @@ class Sidebar extends Component {
     this.onOuterClick(() => this.state.active && this.toogleList());
   }
 
-  handleSearchChange() {
-
-  }
-
   render() {
     return (
       <div className='app-sidebar'>
@@ -47,27 +44,23 @@ class Sidebar extends Component {
             : (<FontAwesomeIcon icon={faList} />)
           }
         </button>
-        <header className='app-sidebar-header'>
-          <h2>Pontos de interesse</h2>
-        </header>
-        <main>
-          <form action='#' className='form-search'>
-            <input
-              className="input-control input-search"
-              type='text'
-              placeholder='Filtrar resultados'
-              aria-label='Filtrar resultados'
+        <div className='sidebar-container'>
+          <header className='app-sidebar-header'>
+            <h2>Pontos de interesse</h2>
+          </header>
+          <main>
+            <FormSearch
+              updateSearch={this.props.updateSearch}
+              query={this.props.querySearch}
             />
-            <FontAwesomeIcon icon={faSearch} className='search-icon' />
-          </form>
-
-          <PlaceList
-            places={this.props.places}
-            activatePlace={this.props.activatePlace}
-            toogleList={this.toogleList}
-          />
-
-        </main>
+            <TypeSelectior />
+            <PlaceList
+              places={this.props.places}
+              activatePlace={this.props.activatePlace}
+              toogleList={this.toogleList}
+            />
+          </main>
+        </div>
       </div>
 
     );

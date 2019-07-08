@@ -1,12 +1,14 @@
 :export {
   restaurantColor: #ce2812;
   attractionColor: #00a650;
+  hotelColor: #ffe600;
   defaultTypeColor: #fff; }
 
 html {
   box-sizing: border-box; }
 
 body,
+button,
 input {
   margin: 0;
   font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -67,18 +69,27 @@ button {
   height: calc(100vh - 90px);
   z-index: 1;
   background-color: #1e441e;
-  color: #dee7dc;
-  transition: all 0.28s ease-in-out; }
+  color: #d3dee0;
+  transition-property: left, right, width;
+  transition-duration: 0.28s;
+  transition-timing-function: ease-in-out; }
   .app-sidebar .btn-toggle-sidebar {
     position: absolute;
     top: 16px;
     right: -56px;
-    transition: right 0.28s ease-in-out; }
+    transition: right 0.28s ease-in-out;
+    z-index: 1; }
+  .app-sidebar .sidebar-container {
+    height: 100%;
+    position: relative;
+    overflow-y: scroll; }
+    .app-sidebar .sidebar-container::-webkit-scrollbar {
+      display: none; }
   .app-sidebar.is-open {
     left: 0; }
     .app-sidebar.is-open .btn-toggle-sidebar {
       right: 16px; }
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     .app-sidebar {
       width: 320px;
       left: 0; }
@@ -88,11 +99,12 @@ button {
 .app-sidebar-header h2 {
   font-size: 1.2em;
   margin-bottom: 30px;
-  color: #dee7dc; }
+  color: #d3dee0; }
 
 .places-list {
   margin: 40px 0; }
   .places-list li {
+    position: relative;
     padding: 22px 4px;
     margin-bottom: 8px;
     border: solid 1px #163216;
@@ -102,14 +114,24 @@ button {
       border-left-color: #ce2812; }
     .places-list li.attraction {
       border-left-color: #00a650; }
+    .places-list li.hotel {
+      border-left-color: #ffe600; }
     .places-list li:hover, .places-list li:focus {
       background-color: rgba(0, 0, 0, 0.1); }
-    .places-list li .places-list-icon {
-      color: #000;
-      opacity: 0.4;
-      padding: 0 12px;
-      display: inline-block;
-      height: 100%; }
+
+.item-text {
+  display: inline-block;
+  width: calc(100% - 70px);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; }
+
+.places-list-icon {
+  color: #000;
+  opacity: 0.4;
+  padding: 0 12px;
+  display: inline-block;
+  height: 100%; }
 
 .form-search {
   position: relative;
@@ -123,40 +145,81 @@ button {
 
 .map-container {
   position: relative;
-  background-color: #dee7dc;
+  background-color: #d3dee0;
   width: 100%;
   height: calc(100vh - 100px);
   left: 0px;
   transition: all 0.28s ease-in-out; }
   .map-container.selected-place {
-    height: calc(45vh - 100px); }
-  @media (min-width: 768px) {
+    height: calc(100vh - 600px); }
+  @media (min-width: 769px) {
     .map-container {
       width: calc(100% - 320px);
-      left: 320px; } }
+      left: 320px; }
+      .map-container.selected-place {
+        height: calc(100vh - 450px); } }
 
 .place-info {
   box-sizing: border-box;
   position: relative;
-  height: 55vh;
+  min-height: 280px;
   bottom: 0;
   right: 0;
   left: 0;
-  padding: 20px;
-  transition: all 0.28s ease-in-out; }
-  @media (min-width: 768px) {
+  padding-bottom: 40px;
+  transition: all 0.28s ease-in-out;
+  border-top: solid 4px #fff; }
+  .place-info.restaurant {
+    border-top-color: #ce2812; }
+  .place-info.attraction {
+    border-top-color: #00a650; }
+  .place-info.hotel {
+    border-top-color: #ffe600; }
+  @media (min-width: 769px) {
     .place-info {
       width: calc(100% - 320px);
       left: 320px; } }
-  .place-info h2 {
-    font-size: 1.5em; }
-  .place-info p {
+
+.place-info-image {
+  box-sizing: border-box;
+  float: right;
+  height: 8em;
+  display: block;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  box-shadow: inset 0 -30px 20px -10px #d3dee0; }
+  @media (min-width: 769px) {
+    .place-info-image {
+      width: 45%;
+      height: 20em;
+      box-shadow: inset 30px 0px 20px -10px #d3dee0; } }
+
+.place-info-content {
+  background-color: #d3dee0;
+  box-sizing: border-box;
+  float: left;
+  padding: 20px;
+  width: 100%;
+  height: 22em; }
+  @media (min-width: 769px) {
+    .place-info-content {
+      width: 55%;
+      height: 20em; } }
+  .place-info-content h2 {
+    font-size: 1.5em;
+    margin-top: 0; }
+  .place-info-content p {
     line-height: 0.9em;
     margin-left: 10px; }
 
 .close-place-info {
+  bottom: 0;
+  width: 100%; }
+
+.back-place-info {
   position: absolute;
-  top: 20px;
-  right: 20px; }
+  right: 10px;
+  background: #d3dee0; }
 
 /*# sourceMappingURL=App.css.map */

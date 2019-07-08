@@ -6,7 +6,7 @@ const apiKey = 'AIzaSyC0LJxzJG83wmuruULMypSFxo6nypBS_bY';
 
 class MapContainer extends Component {
 
-  mapZoom = 16;
+  mapZoom = 17;
 
   geTypeColor = typeName => {
     const colorFormat = cssColor => cssColor.replace('#', '');
@@ -15,6 +15,8 @@ class MapContainer extends Component {
         return colorFormat(styles.restaurantColor);
       case 'Tourist Attraction':
         return colorFormat(styles.attractionColor);
+      case 'Hotel':
+        return colorFormat(styles.hotelColor);
       default:
         return colorFormat(styles.defaultTypeColor);
     }
@@ -53,7 +55,7 @@ class MapContainer extends Component {
           google={google}
           zoom={this.mapZoom}
           onReady={this.handleMapReady}
-          initialCenter={{ lat: -23.6510251, lng: -46.8545333 }}
+          initialCenter={{lat: -23.6498325, lng: -46.8526695}}
           disableDefaultUI={true}
         >
           {places.map((place, i) => (

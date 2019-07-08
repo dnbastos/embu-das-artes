@@ -10,13 +10,15 @@ class App extends Component {
 
   state = {
     places: [],
+    searchedPlaces: [],
+    querySearch: '',
     selectedPlace: undefined,
-    showingInfoWindow: false
+    showingInfoWindow: false,
   }
 
   componentDidMount() {
     PlaceAPI.getAll()
-      .then(places => this.setState({ places }))
+      .then(places => this.setState({ places, searchedPlaces: places }))
       .catch(error => console.log(error));
   }
 
@@ -34,27 +36,39 @@ class App extends Component {
     });
   }
 
+  updateSearch = (query) => {
+    this.setState(prevState => {
+      const searchRegex = new RegExp(query, 'i');
+      return { 
+        querySearch: query,
+        searchedPlaces: prevState.places.filter(place => !!place.name.match(searchRegex))
+      }
+    });
+  }
+
   render() {
     return (
       <div className='app'>
         <header className='app-header'>
           <div className='site-logo'>
-            <img src='http://192.168.2.178/intranet_desenv/assets/img/logos/logo.png' alt='Logo da Prefeitura de Embu das Artes' />
+            <img src={logo} alt='Logo da Prefeitura de Embu das Artes' />
           </div>
         </header>
 
         <main className='app-main'>
           <Sidebar
-            places={this.state.places}
+            places={this.state.searchedPlaces}
             activatePlace={this.activatePlace}
+            querySearch={this.state.querySearch}
+            updateSearch={this.updateSearch}
           />
           <MapContainer
-            places={this.state.places}
+            places={this.state.searchedPlaces}
             activatePlace={this.activatePlace}
             selectedPlace={this.state.selectedPlace}
             showingInfoWindow={this.state.showingInfoWindow}
           />
-          <PlaceInfo 
+          <PlaceInfo
             selectedPlace={this.state.selectedPlace}
             disablePlace={this.disablePlace}
           />

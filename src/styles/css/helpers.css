@@ -1,22 +1,26 @@
 /*
-Error: Undefined variable: "$color-scheme-3".
-        on line 10 of src/styles/scss/helpers.scss
+Error: Undefined variable: "$color-scheme-1".
+        on line 18 of src/styles/scss/helpers.scss
 
-5:   border-radius: 50%;
-6:   border: none;
-7:   height: 50px;
-8:   width: 50px;
-9:   background-color: transparent;
-10:   color: $color-scheme-3;
-11:   border: 2px solid $color-scheme-3;
-12:   font-size: 1.33rem;
-13:   padding-top: 4px;
-14:   outline: 0;
-15:   &:hover {
+13:   box-sizing: border-box;
+14:   border-radius: 5px;
+15:   height: 45px;
+16:   padding: 0 8px;
+17:   margin-bottom: 3px;
+18:   border: 1px solid $color-scheme-1;
+19:   outline-color: yellow;
+20: }
+21: 
+22: .btn {
+23:   background-color: $color-scheme-5;
 
 Backtrace:
-src/styles/scss/helpers.scss:10
+src/styles/scss/helpers.scss:18
 C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/script/tree/variable.rb:49:in `_perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/script/tree/node.rb:58:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/script/tree/list_literal.rb:63:in `block in _perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/script/tree/list_literal.rb:63:in `map'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/script/tree/list_literal.rb:63:in `_perform'
 C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/script/tree/node.rb:58:in `perform'
 C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:398:in `visit_prop'
 C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in `visit'
@@ -65,4 +69,4 @@ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.4.25/vendor/listen/lib/listen/adap
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$color-scheme-3\".\A         on line 10 of src/styles/scss/helpers.scss\A \A 5:   border-radius: 50%;\A 6:   border: none;\A 7:   height: 50px;\A 8:   width: 50px;\A 9:   background-color: transparent;\A 10:   color: $color-scheme-3;\A 11:   border: 2px solid $color-scheme-3;\A 12:   font-size: 1.33rem;\A 13:   padding-top: 4px;\A 14:   outline: 0;\A 15:   &:hover {"; }
+  content: "Error: Undefined variable: \"$color-scheme-1\".\A         on line 18 of src/styles/scss/helpers.scss\A \A 13:   box-sizing: border-box;\A 14:   border-radius: 5px;\A 15:   height: 45px;\A 16:   padding: 0 8px;\A 17:   margin-bottom: 3px;\A 18:   border: 1px solid $color-scheme-1;\A 19:   outline-color: yellow;\A 20: }\A 21: \A 22: .btn {\A 23:   background-color: $color-scheme-5;"; }
