@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PlaceList from './PlaceList';
 import FormSearch from './FormSearch';
+import TypeSelector from './TypeSelector';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faList, faTimes } from '@fortawesome/free-solid-svg-icons'
 
@@ -32,6 +33,11 @@ class Sidebar extends Component {
   }
 
   render() {
+    const { 
+      updateSearch, querySearch, activeType, setFilterType,  
+      places, activatePlace, clearSearch 
+    } = this.props;
+
     return (
       <div className='app-sidebar'>
         <button
@@ -50,13 +56,23 @@ class Sidebar extends Component {
           </header>
           <main>
             <FormSearch
-              updateSearch={this.props.updateSearch}
-              query={this.props.querySearch}
+              updateSearch={updateSearch}
+              query={querySearch}
             />
-            <TypeSelectior />
+            <TypeSelector
+              activeType={activeType}
+              setFilterType={setFilterType}
+            />
+
+            {(!!querySearch || !!activeType) && (
+              <button className='btn pull-right' onClick={() => clearSearch()}>
+                <FontAwesomeIcon icon={faTimes} className='icon-clear-search' />  Redefinir Pesquisa
+              </button>
+            )}
+
             <PlaceList
-              places={this.props.places}
-              activatePlace={this.props.activatePlace}
+              places={places}
+              activatePlace={activatePlace}
               toogleList={this.toogleList}
             />
           </main>

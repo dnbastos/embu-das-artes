@@ -11,11 +11,11 @@ class MapContainer extends Component {
   geTypeColor = typeName => {
     const colorFormat = cssColor => cssColor.replace('#', '');
     switch (typeName) {
-      case 'Restaurant':
+      case 'restaurant':
         return colorFormat(styles.restaurantColor);
-      case 'Tourist Attraction':
+      case 'attraction':
         return colorFormat(styles.attractionColor);
-      case 'Hotel':
+      case 'hotel':
         return colorFormat(styles.hotelColor);
       default:
         return colorFormat(styles.defaultTypeColor);

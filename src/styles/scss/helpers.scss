@@ -22,9 +22,10 @@
 .btn {
   background-color: $color-scheme-5;
   outline: 0;
-  border: none;
+  border: 1px solid darken($color-scheme-5, 10%);
   border-radius: 5px;
   padding: 8px 16px;
+  margin: 6px 0;
   color: #fff;
   font-size: 1.05rem;
   font-weight: normal;

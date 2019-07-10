@@ -10,7 +10,7 @@ class App extends Component {
 
   state = {
     places: [],
-    searchedPlaces: [],
+    filterType: '',
     querySearch: '',
     selectedPlace: undefined,
     showingInfoWindow: false,
@@ -36,17 +36,33 @@ class App extends Component {
     });
   }
 
-  updateSearch = (query) => {
-    this.setState(prevState => {
-      const searchRegex = new RegExp(query, 'i');
-      return { 
-        querySearch: query,
-        searchedPlaces: prevState.places.filter(place => !!place.name.match(searchRegex))
-      }
-    });
+  updateSearch = querySearch => {
+    this.setState({ querySearch });
+  }
+
+  setFilterType = filterType => {
+    this.setState({ filterType });
+  }
+
+  clearSearch = () => {
+    this.setState({ filterType: '', querySearch: '' });
+  }
+
+  filterQuery = places => {
+    const searchRegex = new RegExp(this.state.querySearch, 'i');
+    return places.filter(place => !!place.name.match(searchRegex))
+  }
+
+  filterType = places => {
+    const filterType = this.state.filterType;
+    return !!filterType ? places.filter(place => place.type === filterType) : places;
   }
 
   render() {
+    let searchedPlaces = this.state.places;
+    searchedPlaces = this.filterQuery(searchedPlaces);
+    searchedPlaces = this.filterType(searchedPlaces);
+
     return (
       <div className='app'>
         <header className='app-header'>
@@ -57,13 +73,16 @@ class App extends Component {
 
         <main className='app-main'>
           <Sidebar
-            places={this.state.searchedPlaces}
+            places={searchedPlaces}
             activatePlace={this.activatePlace}
             querySearch={this.state.querySearch}
             updateSearch={this.updateSearch}
+            activeType={this.state.filterType}
+            setFilterType={this.setFilterType}
+            clearSearch={this.clearSearch}
           />
           <MapContainer
-            places={this.state.searchedPlaces}
+            places={searchedPlaces}
             activatePlace={this.activatePlace}
             selectedPlace={this.state.selectedPlace}
             showingInfoWindow={this.state.showingInfoWindow}

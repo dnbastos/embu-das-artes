@@ -5,52 +5,52 @@
   "places": [
     {
       "name": "Feira de Artes",
-      "type": "Tourist Attraction",
+      "type": "attraction",
       "image": "feira-de-artesanato-em.jpg"
     },
     {
       "name": "Museu de Arte Sacra",
-      "type": "Tourist Attraction",
+      "type": "attraction",
       "image": "museu-arte-sacra.jpg"
     },
     {
       "name": "O Garimpo",
-      "type": "Restaurant",
+      "type": "restaurant",
       "image": "o-garimpo.jpg"
     },    
     {
       "name": "Viela das Lavadeiras",
-      "type": "Tourist Attraction",
+      "type": "attraction",
       "image": "viela-das-lavadeiras.jpg"
     },
     {
       "name": "Centro Cultural Mestre de Assis",
-      "type": "Tourist Attraction",
+      "type": "attraction",
       "image": "centro-cultural.jpg"
     },
     {
       "name": "Zur Alten Muhle",
-      "type": "Restaurant",
+      "type": "restaurant",
       "image": "zur-alten.jpg"
     },    
     {
-      "name": "Tutu's Restaurante",
-      "type": "Restaurant",
+      "name": "Tutu's restaurante",
+      "type": "restaurant",
       "image": "tutus.jpg"
     },    
     {
       "name": "Buenos Aires Latino America",
-      "type": "Restaurant",
+      "type": "restaurant",
       "image": "buenos-aires.jpg"
     },    
     {
       "name": "Pousada O Garimpo",
-      "type": "Hotel",
+      "type": "hotel",
       "image": "pousada-o-garimpo.jpg"
     },    
     {
       "name": "Pousada Du Valle",
-      "type": "Hotel",
+      "type": "hotel",
       "image": "pousada-du-valle.jpg"
     }
   ]

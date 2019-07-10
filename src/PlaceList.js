@@ -10,26 +10,13 @@ class PlaceList extends Component {
     toogleList();
   }
 
-  getClassType = typeName => {
-    switch (typeName) {
-      case 'Restaurant':
-        return 'restaurant';
-      case 'Tourist Attraction':
-        return 'attraction';
-      case 'Hotel':
-        return 'hotel';
-      default:
-        return '';
-    }
-  }
-
   render() {
     const { places } = this.props;
     return (
       <ul className='places-list'>
         {places.map((place, i) => (
           <li
-            className={this.getClassType(place.type)}
+            className={place.type}
             key={i}
             tabIndex='0'
             onClick={() => this.selectPlace(place)}

@@ -23,9 +23,10 @@
 .btn {
   background-color: #1e441e;
   outline: 0;
-  border: none;
+  border: 1px solid #0e210e;
   border-radius: 5px;
   padding: 8px 16px;
+  margin: 6px 0;
   color: #fff;
   font-size: 1.05rem;
   font-weight: normal; }
@@ -156,7 +157,7 @@ button {
   color: #d3dee0; }
 
 .places-list {
-  margin: 40px 0; }
+  clear: both; }
   .places-list li {
     position: relative;
     padding: 22px 4px;
@@ -275,5 +276,39 @@ button {
   position: absolute;
   right: 10px;
   background: #d3dee0; }
+
+.type-selector {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto; }
+
+.type-button-selector {
+  z-index: 10;
+  box-sizing: border-box;
+  width: calc(33.33% - 1px);
+  height: 72px;
+  border-radius: 0;
+  color: rgba(0, 0, 0, 0.75);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.5);
+  margin: 0.5px;
+  border-bottom: 3px solid #fff; }
+  .type-button-selector.attraction {
+    border-bottom-color: #00a650; }
+  .type-button-selector.restaurant {
+    border-bottom-color: #ce2812; }
+  .type-button-selector.hotel {
+    border-bottom-color: #ffe600; }
+  .type-button-selector:hover {
+    background: rgba(0, 0, 0, 0.05); }
+  .type-button-selector.active {
+    color: black;
+    background: rgba(0, 0, 0, 0.05);
+    border-bottom-width: 4px; }
+
+.icon-clear-search {
+  color: #000;
+  opacity: 0.6;
+  margin-right: 8px; }
 
 /*# sourceMappingURL=index.css.map */

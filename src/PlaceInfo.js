@@ -4,25 +4,12 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 class PlaceInfo extends Component {
 
-  getClassType = typeName => {
-    switch (typeName) {
-      case 'Restaurant':
-        return 'restaurant';
-      case 'Tourist Attraction':
-        return 'attraction';
-      case 'Hotel':
-        return 'hotel';
-      default:
-        return '';
-    }
-  }
-
   render() {
     const { selectedPlace: place } = this.props;
     const placeImage = place ? require(`./images/places/${place.image}`) : '#';
     if (!place) return (<div></div>);
     return (
-      <div className={`place-info ${this.getClassType(place.type)}`}>
+      <div className={`place-info ${place.type}`}>
         <div role='img' aria-label={place.name}
           className="place-info-image" style={{ backgroundImage: `url(${placeImage})` }}
         />
