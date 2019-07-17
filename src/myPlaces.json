@@ -52,6 +52,26 @@
       "name": "Pousada Du Valle",
       "type": "hotel",
       "image": "pousada-du-valle.jpg"
+    },
+    {
+      "name": "Praça de Alimentação Embu das artes",
+      "type": "restaurant",
+      "image": "praca.jpg"
+    },
+    {
+      "name": "Casa do Artesão",
+      "type": "attraction",
+      "image": "casa-artesao.jpg"
+    },
+    {
+      "name": "Chácara do Bosque",
+      "type": "hotel",
+      "image": "chacara-bosque.jpg"
+    },
+    {
+      "name": "Centro Histórico de Embu das Artes",
+      "type": "attraction",
+      "image": "centro-historico.jpg"
     }
   ]
 }

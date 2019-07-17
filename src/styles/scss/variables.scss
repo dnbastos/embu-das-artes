@@ -10,10 +10,12 @@ $restaurant-color: #ce2812;
 $attraction-color: #00a650;
 $hotel-color: #ffe600;
 $default-type-color: #fff;
+$active-color: #39a6e6;
 
 :export {
   restaurantColor: $restaurant-color;
   attractionColor: $attraction-color;
   hotelColor: $hotel-color;
   defaultTypeColor: $default-type-color;
+  activeColor: $active-color;
 }

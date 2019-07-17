@@ -38,30 +38,32 @@ class App extends Component {
 
   updateSearch = querySearch => {
     this.setState({ querySearch });
+    this.disablePlace();
   }
 
   setFilterType = filterType => {
     this.setState({ filterType });
+    this.disablePlace();
   }
 
   clearSearch = () => {
     this.setState({ filterType: '', querySearch: '' });
   }
 
-  filterQuery = places => {
+  filterByQuery = places => {
     const searchRegex = new RegExp(this.state.querySearch, 'i');
     return places.filter(place => !!place.name.match(searchRegex))
   }
 
-  filterType = places => {
+  filterByType = places => {
     const filterType = this.state.filterType;
     return !!filterType ? places.filter(place => place.type === filterType) : places;
   }
 
   render() {
     let searchedPlaces = this.state.places;
-    searchedPlaces = this.filterQuery(searchedPlaces);
-    searchedPlaces = this.filterType(searchedPlaces);
+    searchedPlaces = this.filterByQuery(searchedPlaces);
+    searchedPlaces = this.filterByType(searchedPlaces);
 
     return (
       <div className='app'>
